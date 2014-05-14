@@ -11,15 +11,15 @@ The purpose of the scripts is to allow a Mac Casper Suite administrator to updat
 - The *update-extension-attributes.sh* bash script will work in the Casper Suite 8 and 9 series.
 - The companion *download-extension-attributes.sh* bash script will only work in the Casper Suite 9 series.
 
-###Requirements and Workflow
+##Requirements and Workflow
 The requirements to enable this functionality is as follows
-- A JSS API account with both *read* and *write* privileges to your JSS
+- A JSS API account with both **read** and **write** privileges to your JSS
 - A copy of any or all Extension Attributes scripts that can be distributed to your clients
 Note: Each Extension Attribute script must contain a line indicating the EA Display Name as it appears in the JSS (see below for details)
 
-###The general workflow is as follows:
+###General Workflow:
 - A directory is distributed to your Mac clients containing any number of Extension Attribute scripts
-- The *update-extension-attributes.sh* script is run on Macs that contain this directory, typically using a Casper Suite policy
+- The **update-extension-attributes.sh** script is run on Macs that contain this directory, typically using a Casper Suite policy
 - The script will cycle through all scripts in the given directory, capturing their results
 - Each result is placed into a final xml file that is then uploaded to the Mac's JSS record using the Casper Suite API PUT function
 
@@ -32,12 +32,12 @@ To do this, you will need to edit each script to contain a single commented out 
 #ea_display_name	Actual Display Name
 ```
 
-This line can be anywhere in the script. The *update-extension-attributes* script will look for the line and pull the EA Diaplay Name to use for the xml file. The display name can contain spaces and most speacial charcters (see the Known Issues section for more)
+This line can be anywhere in the script. The **update-extension-attributes** script will look for the line and pull the EA Diaplay Name to use for the xml file. The display name can contain spaces and most speacial charcters (see the Known Issues section for more)
 
-In general, this should be the only necessary change to your Extension Attribute scripts. However there are some known issues in relation to the results the scripts may output. See the *Known Issues* section below for more information.
+In general, this should be the only necessary change to your Extension Attribute scripts. However there are some known issues in relation to the results the scripts may output. See the **Known Issues** section below for more information.
 
-##Using the *download-extension-attributes* companion script:
-The *download-extension-attributes.sh* script is a companion script that can be used in conjunction with a Casper Suite 9 series JSS to pull down all Extension Attributes into discrete script files to a given directory. The script will also verify each script by running them against the Mac and checking both the output and exit status. Any scripts that fail will be moved to a sub directory. Any scripts that contain illegal characters in the output will be moved into a separate sub directory.
+##Using the **download-extension-attributes** companion script:
+The **download-extension-attributes.sh** script is a companion script that can be used in conjunction with a Casper Suite 9 series JSS to pull down all Extension Attributes into discrete script files to a given directory. The script will also verify each script by running them against the Mac and checking both the output and exit status. Any scripts that fail will be moved to a sub directory. Any scripts that contain illegal characters in the output will be moved into a separate sub directory.
 
 For usage information, run the scrpt on the command line as follows:
 ```
@@ -54,4 +54,4 @@ Here are the currently known characters:
 -   ,       Cannot be used in the result. Causes the upload to fail with an error
 -   *       Cannot be used in the result. Causes the upload to fail with an error
 
-The *download-extension-attributes* script will make a best effort to identify scripts that contain any of the above characters in the results and move these scripts into a **Problem_scripts** sub directory.
+The **download-extension-attributes** script will make a best effort to identify scripts that contain any of the above characters in the results and move these scripts into a **Problem_scripts** sub directory.
