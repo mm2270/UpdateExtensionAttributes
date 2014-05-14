@@ -1,7 +1,5 @@
-UpdateExtensionAttributes
+Casper Suite - Update Extension Attributes
 =========================
-
-#Casper Suite - Update Extension Attributes
 
 ##Description
 This set of scripts was designed to work with the Casper Suite for Mac management.
@@ -34,7 +32,7 @@ To do this, you will need to edit each script to contain a single commented out 
 
 This line can be anywhere in the script. The **update-extension-attributes** script will look for the line and pull the EA Diaplay Name to use for the xml file. The display name can contain spaces and most speacial charcters (see the Known Issues section for more)
 
-In general, this should be the only necessary change to your Extension Attribute scripts. However there are some known issues in relation to the results the scripts may output. See the **Known Issues** section below for more information.
+In general, this should be the only necessary change to your Extension Attribute scripts. However there are some known issues in relation to the results the scripts may output. See the [**Known Issues**](https://github.com/mm2270/UpdateExtensionAttributes#known-issues) section below for more information.
 
 ##Using the **download-extension-attributes** companion script:
 The **download-extension-attributes.sh** script is a companion script that can be used in conjunction with a Casper Suite 9 series JSS to pull down all Extension Attributes into discrete script files to a given directory. The script will also verify each script by running them against the Mac and checking both the output and exit status. Any scripts that fail will be moved to a sub directory. Any scripts that contain illegal characters in the output will be moved into a separate sub directory.
