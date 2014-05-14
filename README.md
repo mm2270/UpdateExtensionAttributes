@@ -30,7 +30,7 @@ To do this, you will need to edit each script to contain a single commented out 
 #ea_display_name	Actual Display Name
 ```
 
-This line can be anywhere in the script. The **update-extension-attributes** script will look for the line and pull the EA Diaplay Name to use for the xml file. The display name can contain spaces and most speacial charcters (see the Known Issues section for more)
+The whitespace between **#ea_display_name** and **Actual Display Name** is a single tab character. This is important. A space will not be recognized correctly. This line can be anywhere in the script. The **update-extension-attributes** script will look for the line and pull the EA Display Name to use for the xml file. The readable display name can contain spaces and most special characters, such as dashes, colons, etc. (see the Known Issues section for more)
 
 In general, this should be the only necessary change to your Extension Attribute scripts. However there are some known issues in relation to the results the scripts may output. See the [**Known Issues**](https://github.com/mm2270/UpdateExtensionAttributes#known-issues) section below for more information.
 
