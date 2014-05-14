@@ -34,7 +34,7 @@ This line can be anywhere in the script. The **update-extension-attributes** scr
 
 In general, this should be the only necessary change to your Extension Attribute scripts. However there are some known issues in relation to the results the scripts may output. See the [**Known Issues**](https://github.com/mm2270/UpdateExtensionAttributes#known-issues) section below for more information.
 
-##Using the **download-extension-attributes** companion script:
+###Using the **download-extension-attributes** companion script:
 The **download-extension-attributes.sh** script is a companion script that can be used in conjunction with a Casper Suite 9 series JSS to pull down all Extension Attributes into discrete script files to a given directory. The script will also verify each script by running them against the Mac and checking both the output and exit status. Any scripts that fail will be moved to a sub directory. Any scripts that contain illegal characters in the output will be moved into a separate sub directory.
 
 For usage information, run the scrpt on the command line as follows:
@@ -43,13 +43,13 @@ For usage information, run the scrpt on the command line as follows:
 ```
 
 ##Known Issues
-###The following are the current known issues with these scripts
+The following are the current known issues with these scripts
 
 There are several illegal characters that, while they may work without errors in your regular Extension Attribute scripts, can cause a failure of the resulting xml file when the upload is attempted.
 Here are the currently known characters:
--   < & >     When used in the format of ```<some data>```, will cause the xml uplaod to fail as it sees these as xml tags and believes the xml file to be malformed
--   %         Cannot be used in the result. Causes the upload to fail with an error
--   ,         Cannot be used in the result. Causes the upload to fail with an error
--   *         Cannot be used in the result. Causes the upload to fail with an error
+-   < & >    When used in the format of ```<some data>```, will cause the xml uplaod to fail as it sees these as xml tags and believes the xml file to be malformed
+-   %    Cannot be used in the result. Causes the upload to fail with an error
+-   ,    Cannot be used in the result. Causes the upload to fail with an error
+-   *    Cannot be used in the result. Causes the upload to fail with an error
 
 The **download-extension-attributes** script will make a best effort to identify scripts that contain any of the above characters in the results and move these scripts into a **Problem_scripts** sub directory.
