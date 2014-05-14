@@ -47,9 +47,9 @@ For usage information, run the scrpt on the command line as follows:
 
 There are several illegal characters that, while they may work without errors in your regular Extension Attribute scripts, can cause a failure of the resulting xml file when the upload is attempted.
 Here are the currently known characters:
--   < & >   When used in the format of <some data>, this will cause the xml uplaod to fail as it sees these as xml tags and believes the xml file to be malformed
--   %       Cannot be used in the result. Causes the upload to fail with an error
--   ,       Cannot be used in the result. Causes the upload to fail with an error
--   *       Cannot be used in the result. Causes the upload to fail with an error
+-   < & >     When used in the format of ```<some data>```, will cause the xml uplaod to fail as it sees these as xml tags and believes the xml file to be malformed
+-   %         Cannot be used in the result. Causes the upload to fail with an error
+-   ,         Cannot be used in the result. Causes the upload to fail with an error
+-   *         Cannot be used in the result. Causes the upload to fail with an error
 
 The **download-extension-attributes** script will make a best effort to identify scripts that contain any of the above characters in the results and move these scripts into a **Problem_scripts** sub directory.
