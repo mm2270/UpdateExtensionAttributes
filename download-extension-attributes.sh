@@ -1,13 +1,13 @@
 #!/bin/bash
 
 ## Script name:		download-extension-attributes.sh
-## Author:			Mike Morales (@mm2270 on JAMFNation)
-##					https://jamfnation.jamfsoftware.com/viewProfile.html?userID=1927
+## Author:		Mike Morales (@mm2270 on JAMFNation)
+##			https://jamfnation.jamfsoftware.com/viewProfile.html?userID=1927
 ## Last change:		2014-05-14
 
 ## Description:		Script to download all Extension Attribute scripts from a
-##					Casper Suite version 9.x JSS. For more detailed information,
-##					run the script in Terminal with the -h flag
+##			Casper Suite version 9.x JSS. For more detailed information,
+##			run the script in Terminal with the -h flag
 
 ## The following section contains the only variables that should be manually edited in
 ## the script. They can also be assigned to the script as Casper Suite parameters.
@@ -17,9 +17,9 @@
 ## API Password here. Note: The API account only needs 'read' privileges to pull
 ## Extension Attribute scripts
 
-apiUser=""			## Set the API Username here if you want it hardcoded
-apiPass=""			## Set the API Password here if you want it hardcoded
-jssURL=""			## Set the JSS URL here if you want it hardcoded
+apiUser=""		## Set the API Username here if you want it hardcoded
+apiPass=""		## Set the API Password here if you want it hardcoded
+jssURL=""		## Set the JSS URL here if you want it hardcoded
 
 ## Set the script downloads folder path here.
 ## Default path is within the JAMF directory in "extension_attributes"
