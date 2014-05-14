@@ -12,7 +12,7 @@ The purpose of the scripts is to allow a Mac Casper Suite administrator to updat
 ##Requirements and Workflow
 The requirements to enable this functionality is as follows
 - A JSS API account with both **read** and **write** privileges to your JSS
-- A copy of any or all Extension Attributes scripts that can be distributed to your clients
+- A copy of any or all Extension Attributes scripts that can be distributed to your clients<br>
 Note: Each Extension Attribute script must contain a line indicating the EA Display Name as it appears in the JSS (see below for details)
 
 ###General Workflow:
