@@ -1,12 +1,12 @@
 #!/bin/bash
 
 ## Script name:		update-extension-attributes.sh
-## Author:			Mike Morales (mm2270 on JAMFNation)
-##					https://jamfnation.jamfsoftware.com/viewProfile.html?userID=1927
+## Author:		Mike Morales (mm2270 on JAMFNation)
+##			https://jamfnation.jamfsoftware.com/viewProfile.html?userID=1927
 ## Last change:		2014-05-14
 
 ## Description:		Script to update any Extension Attribute values based on scripts located
-##					in a specified directory, by using the Casper Suite API
+##			in a specified directory, by using the Casper Suite API
 
 ## Casper Suite API assignments
 ##
@@ -16,19 +16,19 @@
 apiUser=""		## Assign Parameter 4 if using Casper Suite script parameter
 apiPass=""		## Assign Parameter 5 if using Casper Suite script parameter
 jssURL=""		## (Optional - see below) Assign Parameter 6 if using Casper Suite script parameter
-				## Special note: The script will use the following priority order to assign the JSS URL:
-				## 1)	If the JSS URL is hardcoded into the script it will be used first
-				## 2)	If the JSS URL variable is empty in the script and a Casper Suite parameter is
-				##		assigned for parameter 6, it will be used
-				## 3)	If the JSS URL variable is empty in the script and no Casper Suite parameter has
-				##		been assigned, the script will attempt to get the JSS URL from the client's
-				##		com.jamfsoftware.jamf.plist file.
-				## 4)	If the JSS URL variable is empty in the script, there is no Casper Suite parameter
-				##		assigned, and the script cannot get the JSS URL from the client, the script will
-				##		exit with an error since any upload of the resulting xml will be impossible.
-				##
-				## If you assign the JSS URL, either hardcoded or by script parameter, leave off the
-				## trailing slash from the string. Ex: "https://my.jssserver.com:8443"
+			## Special note: The script will use the following priority order to assign the JSS URL:
+			## 1)	If the JSS URL is hardcoded into the script it will be used first
+			## 2)	If the JSS URL variable is empty in the script and a Casper Suite parameter is
+			##		assigned for parameter 6, it will be used
+			## 3)	If the JSS URL variable is empty in the script and no Casper Suite parameter has
+			##		been assigned, the script will attempt to get the JSS URL from the client's
+			##		com.jamfsoftware.jamf.plist file.
+			## 4)	If the JSS URL variable is empty in the script, there is no Casper Suite parameter
+			##		assigned, and the script cannot get the JSS URL from the client, the script will
+			##		exit with an error since any upload of the resulting xml will be impossible.
+			##
+			## If you assign the JSS URL, either hardcoded or by script parameter, leave off the
+			## trailing slash from the string. Ex: "https://my.jssserver.com:8443"
 
 ## Set the following variable to "yes" if its required to have the Mac check to see if
 ## it is on your internal network.
