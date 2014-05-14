@@ -6,8 +6,8 @@ This set of scripts was designed to work with the Casper Suite for Mac managemen
 The purpose of the scripts is to allow a Mac Casper Suite administrator to update any number of Extension Attribute values on their managed Macs, on as frequent a basis as they want, without needing to perform a full inventory collection.
 
 ##Compatibility
-- The *update-extension-attributes.sh* bash script will work in the Casper Suite 8 and 9 series.
-- The companion *download-extension-attributes.sh* bash script will only work in the Casper Suite 9 series.
+- The **update-extension-attributes.sh** bash script will work in the Casper Suite 8 and 9 series.
+- The companion **download-extension-attributes.sh** bash script will only work in the Casper Suite 9 series.
 
 ##Requirements and Workflow
 The requirements to enable this functionality is as follows
