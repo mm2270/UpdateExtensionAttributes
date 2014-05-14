@@ -199,7 +199,7 @@ while read downloadedScript; do
 	fi
 	## Make sure all the scripts have the executable flag set for them
 	chmod +x "${scriptDownloadDir}/${downloadedScript}"
-done < <(ls "${scriptDownloadDir}")
+done < <(ls -p "${scriptDownloadDir}" | grep -v /)
 
 echo "Step 4:	Running all downloaded scripts to check output..."
 
