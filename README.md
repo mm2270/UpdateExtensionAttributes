@@ -45,11 +45,17 @@ For usage information, run the scrpt on the command line as follows:
 ##Known Issues
 The following are the current known issues with these scripts
 
+**Illegal characters**<br>
 There are several illegal characters that, while they may work without errors in your regular Extension Attribute scripts, can cause a failure of the resulting xml file when the upload is attempted.
 Here are the currently known characters:
--   ```< & >```    When used in the format of ```<some data>```, will cause the xml uplaod to fail as it sees these as xml tags and believes the xml file to be malformed
--   ```%```    Cannot be used in the result. Causes the upload to fail with an error
--   ```,```    Cannot be used in the result. Causes the upload to fail with an error
--   ```*```    Cannot be used in the result. Causes the upload to fail with an error
+-   ```< & >```    *(Less than, Greater than)*   When used in the format of ```<some data>```, will cause the xml upload to fail as it sees these as xml tags and believes the xml file to be malformed
+-   ```%```    *(Percent symbol)*   Cannot be used in the result. Causes the upload to fail with an error
+-   ```,```    *(Comma)*   Cannot be used in the result. Causes the upload to fail with an error
+-   ```*```    *(Asterisk)*   Cannot be used in the result. Causes the upload to fail with an error
 
-The **download-extension-attributes** script will make a best effort to identify scripts that contain any of the above characters in the results and move these scripts into a **Problem_scripts** sub directory.
+The **download-extension-attributes** script will make a best effort to identify scripts that contain any of the above characters in the results and move these scripts into a **Problem_scripts** sub directory.<br>
+Any problem or failed scripts will remain in these directories, so you'll have an opportunity to examine them and rectify any issues if desired. Once confirmed working, you'll need to move the scripts into the top level of the scripts directory. The **update-extension-attributes** script only searches one level deep for script files to run at execution time.
+
+**Multi line results display**<br>
+Depending on the specific version of the JSS you're using, multi line Extension Attribute results may not appear properly when viewed in the JSS.<br>
+This often turns out to be a bug in the JSS version and not necessarily an issue with the script. Early versions of Casper Suite 9.x had this issue, but has been resolved in at least version 9.3, but possibly earlier releases.
