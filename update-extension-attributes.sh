@@ -101,7 +101,7 @@ echo "</extension_attributes>
 
 ## Upload the final xml to the JSS
 echo "Finished collecting Extension Attribute results. Updating the computer record with new data..."
-curl -skfu "${apiUser}:${apiPass}" "${jssURL}/JSSResource/computers/macaddress/$MacID" -T "${xmlPath}" -X PUT
+curl -skfu "${apiUser}:${apiPass}" -H "Accept: application/xml" "${jssURL}/JSSResource/computers/macaddress/$MacID" -T "${xmlPath}" -X PUT
 uploadResult="$?"
 
 ## Check the exit status of the upload
