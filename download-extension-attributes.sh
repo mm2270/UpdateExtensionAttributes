@@ -141,7 +141,7 @@ fi
 ## Begin Extension Attribute script download process
 echo "Step 1:	Gathering all Extension Attribute IDs from the JSS..."
 ## Generate a list of all Extension Attribute IDs we can pull from the JSS using the API
-allExtAttrIDs=$( curl -skfu "${apiUser}:${apiPass}" "${jssEAURL}" | xpath /computer_extension_attributes/computer_extension_attribute/id[1] 2>&1 | sed -e 's/<id>//;s/<\/id>//;s/-- NODE --//' | sed -e '/Found/d;/^$/d' | sort -n )
+allExtAttrIDs=$( curl -skfu "${apiUser}:${apiPass}" -H "Accept: application/xml" "${jssEAURL}" | xpath /computer_extension_attributes/computer_extension_attribute/id[1] 2>&1 | sed -e 's/<id>//;s/<\/id>//;s/-- NODE --//' | sed -e '/Found/d;/^$/d' | sort -n )
 
 ## Now read through each ID gathered and get specific information on each EA from the JSS
 echo "Step 2:	Pulling down each Extension Attribute from the JSS..."
@@ -149,9 +149,9 @@ echo "Step 2:	Pulling down each Extension Attribute from the JSS..."
 downloadCount=0
 while read ID; do
 	## Get the EA name from its JSS ID
-	ea_Name=$( curl -sku "${apiUser}:${apiPass}" "${jssEAURL}/id/${ID}" | xpath /computer_extension_attribute/name[1] 2>&1 | sed -e 's/<name>//;s/<\/name>//;s/-- NODE --//' | sed -e '/Found/d;/^$/d' )
+	ea_Name=$( curl -sku "${apiUser}:${apiPass}" -H "Accept: application/xml" "${jssEAURL}/id/${ID}" | xpath /computer_extension_attribute/name[1] 2>&1 | sed -e 's/<name>//;s/<\/name>//;s/-- NODE --//' | sed -e '/Found/d;/^$/d' )
 	## Get the actual script contents from the API record for the EA
-	ea_Script=$( curl -sku "${apiUser}:${apiPass}" "${jssEAURL}/id/${ID}" | xpath /computer_extension_attribute/input_type/script[1] 2>&1 | sed -e 's/<script>//;s/<\/script>//;s/-- NODE --//;s/:/\\:/' | sed -e '/Found/d;/^$/d' )
+	ea_Script=$( curl -sku "${apiUser}:${apiPass}" -H "Accept: application/xml" "${jssEAURL}/id/${ID}" | xpath /computer_extension_attribute/input_type/script[1] 2>&1 | sed -e 's/<script>//;s/<\/script>//;s/-- NODE --//;s/:/\\:/' | sed -e '/Found/d;/^$/d' )
 	## Get the first line, which should be a shebang of some kind
 	firstLine=$( echo "${ea_Script}" | head -1 )
 	## If it looks like the first line begins with a shebang...
