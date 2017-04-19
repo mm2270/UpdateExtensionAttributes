@@ -1,21 +1,21 @@
 Casper Suite - Update Extension Attributes
 =========================
 
-##Description
+## Description
 This set of scripts was designed to work with the Casper Suite for Mac management.
 The purpose of the scripts is to allow a Mac Casper Suite administrator to update any number of Extension Attribute values on their managed Macs, on as frequent a basis as they want, without needing to perform a full inventory collection.
 
-##Compatibility
+## Compatibility
 - The **update-extension-attributes.sh** bash script will work in the Casper Suite 8 and 9 series.
 - The companion **download-extension-attributes.sh** bash script will only work in the Casper Suite 9 series.
 
-##Requirements and Workflow
+## Requirements and Workflow
 The requirements to enable this functionality is as follows
 - A JSS API account with both **read** and **write** privileges to your JSS
 - A copy of any or all Extension Attributes scripts that can be distributed to your clients<br>
 Note: Each Extension Attribute script must contain a line indicating the EA Display Name as it appears in the JSS (see [**Setting up your EA scripts**](https://github.com/mm2270/UpdateExtensionAttributes#setting-up-your-ea-scripts) below for details)
 
-###General Workflow:
+### General Workflow:
 - A directory is distributed to your Mac clients containing any number of Extension Attribute scripts
 - The **update-extension-attributes.sh** script is run on Macs that contain this directory, typically using a Casper Suite policy
 - The script will cycle through all scripts in the given directory, capturing their results
@@ -23,7 +23,7 @@ Note: Each Extension Attribute script must contain a line indicating the EA Disp
 
 Note that the Extension Attribute scripts directory can be protected by making it hidden and/or protected by having it owned by the root account, as long as the "update" script is running with root privileges.
 
-###Setting up your EA scripts:
+### Setting up your EA scripts:
 In order for the script to properly set up the final xml file for upload, it needs to know the correct EA Display Name for each script as it encounters it.
 To do this, you will need to edit each script to contain a single commented out line in the following format:
 ```
@@ -34,7 +34,7 @@ The whitespace between **#ea_display_name** and **Actual Display Name** is a sin
 
 In general, this should be the only necessary change to your Extension Attribute scripts. However there are some known issues in relation to the results the scripts may output. See the [**Known Issues**](https://github.com/mm2270/UpdateExtensionAttributes#known-issues) section below for more information.
 
-###Using the **download-extension-attributes** companion script:
+### Using the **download-extension-attributes** companion script:
 The **download-extension-attributes.sh** script is a companion script that can be used in conjunction with a Casper Suite 9 series JSS to pull down all Extension Attributes into discrete script files to a given directory. The script will also verify each script by running them against the Mac and checking both the output and exit status. Any scripts that fail will be moved to a sub directory. Any scripts that contain illegal characters in the output will be moved into a separate sub directory.
 
 For usage information, run the scrpt on the command line as follows:
@@ -42,7 +42,7 @@ For usage information, run the scrpt on the command line as follows:
 /path/to/script/download-extension-attributes.sh -h
 ```
 
-##Known Issues
+## Known Issues
 The following are the current known issues with these scripts
 
 **Illegal characters**<br>
